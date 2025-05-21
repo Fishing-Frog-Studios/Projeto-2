@@ -1,0 +1,362 @@
+fileFormatVersion: 2
+guid: 79ca67bd4c71c514aa80894b0472e0e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4068919216648077736
+    second: MenuOptionsHover_0
+  - first:
+      213: -510043298618608601
+    second: MenuOptionsHover_1
+  - first:
+      213: 4674793013624776912
+    second: MenuOptionsHover_2
+  - first:
+      213: 8899043703777329515
+    second: MenuOptionsHover_3
+  - first:
+      213: -5293672111140934892
+    second: MenuOptionsHover_4
+  - first:
+      213: -7423344834391426153
+    second: MenuOptionsHover_5
+  - first:
+      213: 2002483242004338292
+    second: MenuOptionsHover_6
+  - first:
+      213: -1279452331491380595
+    second: MenuOptionsHover_7
+  - first:
+      213: -4306620334642006886
+    second: MenuOptionsHover_8
+  - first:
+      213: 5430308463976960626
+    second: MenuOptionsHover_9
+  - first:
+      213: -690689230367771733
+    second: MenuOptionsHover_10
+  - first:
+      213: 5807203230230924305
+    second: MenuOptionsHover_11
+  - first:
+      213: 5389955587393134408
+    second: MenuOptionsHover_12
+  - first:
+      213: 869718691973394485
+    second: MenuOptionsHover_13
+  - first:
+      213: -2977215830338255041
+    second: MenuOptionsHover_14
+  - first:
+      213: 7527715329758225765
+    second: MenuOptionsHover_15
+  - first:
+      213: -4551261037319370999
+    second: MenuOptionsHover_16
+  - first:
+      213: 5276330170112809365
+    second: MenuOptionsHover_17
+  - first:
+      213: -6346550568015822020
+    second: MenuOptionsHover_18
+  - first:
+      213: 6256901413324179144
+    second: MenuOptionsHover_19
+  - first:
+      213: 593194433945781554
+    second: MenuOptionsHover_20
+  - first:
+      213: -1813394102687958887
+    second: MenuOptionsHover_21
+  - first:
+      213: 8429044383278829872
+    second: MenuOptionsHover_22
+  - first:
+      213: 7021997577969590320
+    second: MenuOptionsHover_23
+  - first:
+      213: -4702891040871332269
+    second: MenuOptionsHover_24
+  - first:
+      213: -687294622717436809
+    second: MenuOptionsHover_25
+  - first:
+      213: 4953381355675567356
+    second: MenuOptionsHover_26
+  - first:
+      213: -2841206422202163004
+    second: MenuOptionsHover_27
+  - first:
+      213: 167610447049847374
+    second: MenuOptionsHover_28
+  - first:
+      213: -3229695507890292253
+    second: MenuOptionsHover_29
+  - first:
+      213: 6297407030033189234
+    second: MenuOptionsHover_30
+  - first:
+      213: 3721155939711262579
+    second: MenuOptionsHover_31
+  - first:
+      213: 7094921314349732531
+    second: MenuOptionsHover_32
+  - first:
+      213: 3993825846207151190
+    second: MenuOptionsHover_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MenuOptionsHover_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 318
+        width: 346
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85e3eefc78b4887c0800000000000000
+      internalID: -4068919216648077736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuOptionsHover_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 346
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1549456bbd6e8ef48bde489437a841a8
+      internalID: 1936957389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuOptionsHover_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 346
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d894fe532976d44bfd3a2e7ed82065
+      internalID: -520588635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuOptionsHover_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 346
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 601c010fb4a329b49978d2e7e8c21e00
+      internalID: -465399562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuOptionsHover_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11
+        width: 346
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ecaf58cf5dcff4a80d80714d5db0f2
+      internalID: -1823079204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 31bcde365d00dc1429e054b20063620c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MenuOptionsHover_1: 1936957389
+      MenuOptionsHover_2: -520588635
+      MenuOptionsHover_3: -465399562
+      MenuOptionsHover_34: -1675174549
+      MenuOptionsHover_4: -1823079204
+      MenuOptionsHover_5: 282253144
+      MenuOptionsHover_9: -1940247507
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
