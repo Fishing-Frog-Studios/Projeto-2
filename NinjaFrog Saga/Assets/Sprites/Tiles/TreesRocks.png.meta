@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 94a865123a2ccd643b0cbd909c2b9779
+guid: cc458fe795fe613408b12fd65256ee04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6764707825347140516
-    second: Knife_0
+      213: -6802703485115130634
+    second: TreesRocks_0
+  - first:
+      213: -929532530764862594
+    second: TreesRocks_1
+  - first:
+      213: -3107734587757487189
+    second: TreesRocks_2
+  - first:
+      213: 1282529297544115441
+    second: TreesRocks_3
+  - first:
+      213: -4973841810237299907
+    second: TreesRocks_4
+  - first:
+      213: -542281023255363510
+    second: TreesRocks_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Knife_0
+      name: TreesRocks_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 240
-        height: 36
+        x: 3
+        y: 273
+        width: 195
+        height: 373
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +156,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ab1f1b1de111ed50800000000000000
-      internalID: 6764707825347140516
+      spriteID: 6fc9669f831f791a0800000000000000
+      internalID: -6802703485115130634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreesRocks_1
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 273
+        width: 335
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7b27909613a913f0800000000000000
+      internalID: -929532530764862594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreesRocks_2
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 273
+        width: 195
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab1580abdb1fd4d0800000000000000
+      internalID: -3107734587757487189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreesRocks_3
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 3
+        width: 170
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f4f52ad9957cc110800000000000000
+      internalID: 1282529297544115441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreesRocks_4
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 3
+        width: 170
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33e1d3e93d59fab0800000000000000
+      internalID: -4973841810237299907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreesRocks_5
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 3
+        width: 71
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a40cd60584e6978f0800000000000000
+      internalID: -542281023255363510
       vertices: []
       indices: 
       edges: []
@@ -160,8 +285,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Knife_0: 6764707825347140516
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
