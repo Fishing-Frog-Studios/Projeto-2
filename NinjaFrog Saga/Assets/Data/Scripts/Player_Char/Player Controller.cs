@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isMenuOpen = false;
 
-    [Header("Referência da UI do Menu")]
+    [Header("Referï¿½ncia da UI do Menu")]
     public GameObject menuUI; // arraste seu painel de menu aqui no Inspector
 
     private void Awake()
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         // Captura o ataque
         controls.Player.Ataque.performed += ctx => Attack();
 
-        // Captura o botão de menu
+        // Captura o botï¿½o de menu
         controls.Player.Menu.performed += ctx => ToggleMenu();
     }
 
@@ -36,10 +36,10 @@ public class PlayerController : MonoBehaviour
         speed = DataPlayer.Instace.moveSpeed;
         atkSpeed = DataPlayer.Instace.ataqueSpeed;
 
-        // Garante que o menu começa fechado
+        // Garante que o menu comeï¿½a fechado
         menuUI.SetActive(false);
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked; //
     }
 
     private void OnEnable()
@@ -54,9 +54,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Se o menu estiver aberto, não move
-        if (isMenuOpen) return; 
-        
+        // Se o menu estiver aberto, nï¿½o move
+        if (isMenuOpen) return;
+
 
         Vector3 movement = new Vector3(moveInput.x, moveInput.y, 0f);
         transform.Translate(movement * speed * Time.deltaTime);
@@ -64,13 +64,13 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        // Se o menu estiver aberto ou já estiver atacando, não faz nada
+        // Se o menu estiver aberto ou jï¿½ estiver atacando, nï¿½o faz nada
         if (isMenuOpen || isAttacking) return;
 
         isAttacking = true;
         Debug.Log("Ataque iniciado!");
 
-        // Aqui você pode disparar animação, som, etc.
+        // Aqui vocï¿½ pode disparar animaï¿½ï¿½o, som, etc.
         Invoke(nameof(EndAttack), atkSpeed);
     }
 
