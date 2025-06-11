@@ -108,6 +108,42 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Correr"",
+                    ""type"": ""Button"",
+                    ""id"": ""8efb0726-3136-4e4f-9cec-ec0e5e23bf62"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interagir"",
+                    ""type"": ""Button"",
+                    ""id"": ""65822ba5-7207-43a0-9a40-c741b713d7b9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbe6eee1-b27a-4889-a1f7-3a720d5500e7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventario"",
+                    ""type"": ""Button"",
+                    ""id"": ""15fea986-8006-4b4e-89ff-5b8a3758253d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -176,6 +212,50 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17aa8307-9075-45ed-953b-e2f21c52f76e"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Correr"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b939a989-c994-4ab4-a9af-ce6f1ee529a9"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interagir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dfeb5887-9633-4ea2-8927-8f55b89426c6"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a88244b-4e0a-4861-a9c4-7bb15ba0a745"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventario"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -186,6 +266,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Ataque = m_Player.FindAction("Ataque", throwIfNotFound: true);
+        m_Player_Correr = m_Player.FindAction("Correr", throwIfNotFound: true);
+        m_Player_Interagir = m_Player.FindAction("Interagir", throwIfNotFound: true);
+        m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
+        m_Player_Inventario = m_Player.FindAction("Inventario", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -268,6 +352,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Ataque;
+    private readonly InputAction m_Player_Correr;
+    private readonly InputAction m_Player_Interagir;
+    private readonly InputAction m_Player_Menu;
+    private readonly InputAction m_Player_Inventario;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -287,6 +375,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Ataque".
         /// </summary>
         public InputAction @Ataque => m_Wrapper.m_Player_Ataque;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Correr".
+        /// </summary>
+        public InputAction @Correr => m_Wrapper.m_Player_Correr;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Interagir".
+        /// </summary>
+        public InputAction @Interagir => m_Wrapper.m_Player_Interagir;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Menu".
+        /// </summary>
+        public InputAction @Menu => m_Wrapper.m_Player_Menu;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Inventario".
+        /// </summary>
+        public InputAction @Inventario => m_Wrapper.m_Player_Inventario;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -319,6 +423,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Ataque.started += instance.OnAtaque;
             @Ataque.performed += instance.OnAtaque;
             @Ataque.canceled += instance.OnAtaque;
+            @Correr.started += instance.OnCorrer;
+            @Correr.performed += instance.OnCorrer;
+            @Correr.canceled += instance.OnCorrer;
+            @Interagir.started += instance.OnInteragir;
+            @Interagir.performed += instance.OnInteragir;
+            @Interagir.canceled += instance.OnInteragir;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
+            @Inventario.started += instance.OnInventario;
+            @Inventario.performed += instance.OnInventario;
+            @Inventario.canceled += instance.OnInventario;
         }
 
         /// <summary>
@@ -336,6 +452,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Ataque.started -= instance.OnAtaque;
             @Ataque.performed -= instance.OnAtaque;
             @Ataque.canceled -= instance.OnAtaque;
+            @Correr.started -= instance.OnCorrer;
+            @Correr.performed -= instance.OnCorrer;
+            @Correr.canceled -= instance.OnCorrer;
+            @Interagir.started -= instance.OnInteragir;
+            @Interagir.performed -= instance.OnInteragir;
+            @Interagir.canceled -= instance.OnInteragir;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
+            @Inventario.started -= instance.OnInventario;
+            @Inventario.performed -= instance.OnInventario;
+            @Inventario.canceled -= instance.OnInventario;
         }
 
         /// <summary>
@@ -390,5 +518,33 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAtaque(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Correr" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCorrer(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interagir" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteragir(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Menu" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMenu(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Inventario" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventario(InputAction.CallbackContext context);
     }
 }

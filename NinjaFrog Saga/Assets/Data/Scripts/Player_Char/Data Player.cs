@@ -27,13 +27,8 @@ public class DataPlayer : MonoBehaviour
     [Header ("velocidade de ataque")]
     public float ataqueSpeed = 0.5f;
 
-    // Status para uso do inventario
-
-    [Header("Ouro Maxima da bolsa")] 
-    public int maxOuro = 1;
-
-    [Header("Numero maximo de slots no inventario")]
-    public int InventorySpace = 5;
+    [Header("damege base")]
+    public float dano;
 
     private void Awake()
     {
