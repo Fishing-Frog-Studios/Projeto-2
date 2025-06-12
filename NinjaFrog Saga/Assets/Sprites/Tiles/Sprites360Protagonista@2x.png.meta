@@ -1,31 +1,40 @@
 fileFormatVersion: 2
-guid: 4649f618d5c001c4d9e3f68fc6ad9456
+guid: bc2da4d389d761a49a516204ab8a3b3e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3736958828667576685
-    second: Sprites360Protagonista (1)_0
+      213: -3614568596976934114
+    second: Sprites360Protagonista@2x_0
   - first:
-      213: 2056690050769337972
-    second: Sprites360Protagonista (1)_1
+      213: -1638052372537985586
+    second: Sprites360Protagonista@2x_1
   - first:
-      213: -4576576816484486205
-    second: Sprites360Protagonista (1)_2
+      213: 2033219154400454494
+    second: Sprites360Protagonista@2x_2
   - first:
-      213: 6244735179568309300
-    second: Sprites360Protagonista (1)_3
+      213: -187040566150071216
+    second: Sprites360Protagonista@2x_3
   - first:
-      213: -927007261675009155
-    second: Sprites360Protagonista (1)_4
+      213: -2831173275753654635
+    second: Sprites360Protagonista@2x_4
   - first:
-      213: 7171682653582451478
-    second: Sprites360Protagonista (1)_5
+      213: 8135670402698986285
+    second: Sprites360Protagonista@2x_5
   - first:
-      213: -3286289909104422347
-    second: Sprites360Protagonista (1)_6
+      213: 6206173331104760348
+    second: Sprites360Protagonista@2x_6
   - first:
-      213: -7547146869665468426
-    second: Sprites360Protagonista (1)_7
+      213: 5320263293312311136
+    second: Sprites360Protagonista@2x_7
+  - first:
+      213: 6070196254434181577
+    second: Sprites360Protagonista@2x_8
+  - first:
+      213: -744404781002253549
+    second: Sprites360Protagonista@2x_9
+  - first:
+      213: 7392158744939090552
+    second: Sprites360Protagonista@2x_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,58 +127,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: VisionOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -186,177 +143,243 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprites360Protagonista (1)_0
+      name: Sprites360Protagonista@2x_0
       rect:
         serializedVersion: 2
-        x: 54
-        y: 11
-        width: 241
-        height: 277
-      alignment: 9
-      pivot: {x: 0.30179638, y: 0.18217097}
+        x: 108
+        y: 0
+        width: 480
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d61adf261485cd330800000000000000
-      internalID: 3736958828667576685
+      spriteID: e1368e8030976ddc0800000000000000
+      internalID: -3614568596976934114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites360Protagonista (1)_1
+      name: Sprites360Protagonista@2x_1
       rect:
         serializedVersion: 2
-        x: 299
-        y: 11
-        width: 251
-        height: 303
-      alignment: 9
-      pivot: {x: 0.711463, y: 0.15146096}
+        x: 599
+        y: 0
+        width: 499
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47ebf2154b4da8c10800000000000000
-      internalID: 2056690050769337972
+      spriteID: ec53363cb087449e0800000000000000
+      internalID: -1638052372537985586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites360Protagonista (1)_2
+      name: Sprites360Protagonista@2x_2
       rect:
         serializedVersion: 2
-        x: 573
-        y: 11
-        width: 237
-        height: 272
-      alignment: 9
-      pivot: {x: 0.6962489, y: 0.18013623}
+        x: 1146
+        y: 0
+        width: 471
+        height: 563
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c3772612abbc70c0800000000000000
-      internalID: -4576576816484486205
+      spriteID: e572f886c02773c10800000000000000
+      internalID: 2033219154400454494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites360Protagonista (1)_3
+      name: Sprites360Protagonista@2x_3
       rect:
         serializedVersion: 2
-        x: 839
-        y: 11
-        width: 254
-        height: 283
-      alignment: 9
-      pivot: {x: 0.70941305, y: 0.17174208}
+        x: 1678
+        y: 0
+        width: 506
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 434ed8e4f81c9a650800000000000000
-      internalID: 6244735179568309300
+      spriteID: 05c7908989f776df0800000000000000
+      internalID: -187040566150071216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites360Protagonista (1)_4
+      name: Sprites360Protagonista@2x_4
       rect:
         serializedVersion: 2
-        x: 1115
-        y: 11
-        width: 255
-        height: 274
-      alignment: 9
-      pivot: {x: 0.70287704, y: 0.1785148}
+        x: 2178
+        y: 0
+        width: 9
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7b47a79ecb9223f0800000000000000
-      internalID: -927007261675009155
+      spriteID: 596df19e7e6a5b8d0800000000000000
+      internalID: -2831173275753654635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites360Protagonista (1)_5
+      name: Sprites360Protagonista@2x_5
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 11
-        width: 149
-        height: 264
-      alignment: 9
-      pivot: {x: 0.52346045, y: 0.17957786}
+        x: 2231
+        y: 0
+        width: 507
+        height: 568
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 613ec90506fe68360800000000000000
-      internalID: 7171682653582451478
+      spriteID: d23488a6025b7e070800000000000000
+      internalID: 8135670402698986285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites360Protagonista (1)_6
+      name: Sprites360Protagonista@2x_6
       rect:
         serializedVersion: 2
-        x: 1586
-        y: 11
-        width: 264
-        height: 274
-      alignment: 9
-      pivot: {x: 0.2823329, y: 0.16906129}
+        x: 2799
+        y: 0
+        width: 10
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53251ea3db0c462d0800000000000000
-      internalID: -3286289909104422347
+      spriteID: c12800f43c1c02650800000000000000
+      internalID: 6206173331104760348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites360Protagonista (1)_7
+      name: Sprites360Protagonista@2x_7
       rect:
         serializedVersion: 2
-        x: 1860
-        y: 11
-        width: 258
-        height: 283
-      alignment: 9
-      pivot: {x: 0.29586533, y: 0.18489419}
+        x: 2800
+        y: 0
+        width: 296
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ff63e598e5234790800000000000000
-      internalID: -7547146869665468426
+      spriteID: 06f1e6df64f55d940800000000000000
+      internalID: 5320263293312311136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites360Protagonista@2x_8
+      rect:
+        serializedVersion: 2
+        x: 3172
+        y: 0
+        width: 526
+        height: 568
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1c476055bad3450800000000000000
+      internalID: 6070196254434181577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites360Protagonista@2x_9
+      rect:
+        serializedVersion: 2
+        x: 3720
+        y: 0
+        width: 10
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b1243bbc75ba5f0800000000000000
+      internalID: -744404781002253549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites360Protagonista@2x_10
+      rect:
+        serializedVersion: 2
+        x: 3721
+        y: 0
+        width: 512
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87254639639369660800000000000000
+      internalID: 7392158744939090552
       vertices: []
       indices: 
       edges: []
@@ -365,7 +388,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c6e04d8fee174314986a857bffa5c50d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -374,15 +397,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Sprites360Protagonista (1)_0: 3736958828667576685
-      Sprites360Protagonista (1)_1: 2056690050769337972
-      Sprites360Protagonista (1)_2: -4576576816484486205
-      Sprites360Protagonista (1)_3: 6244735179568309300
-      Sprites360Protagonista (1)_4: -927007261675009155
-      Sprites360Protagonista (1)_5: 7171682653582451478
-      Sprites360Protagonista (1)_6: -3286289909104422347
-      Sprites360Protagonista (1)_7: -7547146869665468426
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
