@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: cc458fe795fe613408b12fd65256ee04
+guid: 61f1e81a50e26f34eb2ab3b8a525b84a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6802703485115130634
-    second: TreesRocks_0
+      213: 3164368508049987719
+    second: pedras e arvores@2x_0
   - first:
-      213: -929532530764862594
-    second: TreesRocks_1
+      213: -388781736804738876
+    second: pedras e arvores@2x_1
   - first:
-      213: -3107734587757487189
-    second: TreesRocks_2
+      213: 7494271587565644599
+    second: pedras e arvores@2x_2
   - first:
-      213: 1282529297544115441
-    second: TreesRocks_3
+      213: 962098169853207480
+    second: pedras e arvores@2x_3
   - first:
-      213: -4973841810237299907
-    second: TreesRocks_4
+      213: -1672144523006518460
+    second: pedras e arvores@2x_4
   - first:
-      213: -542281023255363510
-    second: TreesRocks_5
+      213: 3667220007025893981
+    second: pedras e arvores@2x_5
+  - first:
+      213: 5966438327051802792
+    second: pedras e arvores@2x_6
+  - first:
+      213: -7399819583856278857
+    second: pedras e arvores@2x_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,58 +118,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: VisionOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -180,133 +134,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TreesRocks_0
+      name: pedras e arvores@2x_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 271
-        width: 201
-        height: 375
-      alignment: 9
-      pivot: {x: 0.52286124, y: 0.17046547}
+        x: 35
+        y: 2
+        width: 667
+        height: 839
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6fc9669f831f791a0800000000000000
-      internalID: -6802703485115130634
+      spriteID: 78890cc74681aeb20800000000000000
+      internalID: 3164368508049987719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreesRocks_1
+      name: pedras e arvores@2x_1
       rect:
         serializedVersion: 2
-        x: 226
-        y: 273
-        width: 335
-        height: 430
+        x: 822
+        y: 556
+        width: 447
+        height: 237
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e7b27909613a913f0800000000000000
-      internalID: -929532530764862594
+      spriteID: 4c8189af115ca9af0800000000000000
+      internalID: -388781736804738876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreesRocks_2
+      name: pedras e arvores@2x_2
       rect:
         serializedVersion: 2
-        x: 578
-        y: 273
-        width: 195
-        height: 193
+        x: 1388
+        y: 0
+        width: 387
+        height: 742
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bab1580abdb1fd4d0800000000000000
-      internalID: -3107734587757487189
+      spriteID: 73b27237d40010860800000000000000
+      internalID: 7494271587565644599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreesRocks_3
+      name: pedras e arvores@2x_3
       rect:
         serializedVersion: 2
-        x: 31
-        y: 3
-        width: 170
-        height: 236
+        x: 1805
+        y: 572
+        width: 136
+        height: 197
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f4f52ad9957cc110800000000000000
-      internalID: 1282529297544115441
+      spriteID: 8b36725203f0a5d00800000000000000
+      internalID: 962098169853207480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreesRocks_4
+      name: pedras e arvores@2x_4
       rect:
         serializedVersion: 2
-        x: 215
-        y: 3
-        width: 170
-        height: 150
+        x: 674
+        y: 0
+        width: 339
+        height: 468
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d33e1d3e93d59fab0800000000000000
-      internalID: -4973841810237299907
+      spriteID: 44bd41d6a695bc8e0800000000000000
+      internalID: -1672144523006518460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreesRocks_5
+      name: pedras e arvores@2x_5
       rect:
         serializedVersion: 2
-        x: 407
-        y: 3
-        width: 71
-        height: 59
+        x: 1131
+        y: 374
+        width: 139
+        height: 115
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a40cd60584e6978f0800000000000000
-      internalID: -542281023255363510
+      spriteID: d52ebf7aa2594e230800000000000000
+      internalID: 3667220007025893981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pedras e arvores@2x_6
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 0
+        width: 386
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8d2320c0c0dc250800000000000000
+      internalID: 5966438327051802792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pedras e arvores@2x_7
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 0
+        width: 339
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b2844e5b4f8e4990800000000000000
+      internalID: -7399819583856278857
       vertices: []
       indices: 
       edges: []
@@ -315,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d238e1e6b58317745b4984a80e968d99
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -324,13 +322,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      TreesRocks_0: -6802703485115130634
-      TreesRocks_1: -929532530764862594
-      TreesRocks_2: -3107734587757487189
-      TreesRocks_3: 1282529297544115441
-      TreesRocks_4: -4973841810237299907
-      TreesRocks_5: -542281023255363510
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
