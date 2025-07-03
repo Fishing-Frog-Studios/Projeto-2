@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sprites360Protagonista@2x_0: -3614568596976934114
+      Sprites360Protagonista@2x_1: -1638052372537985586
+      Sprites360Protagonista@2x_10: 7392158744939090552
+      Sprites360Protagonista@2x_2: 2033219154400454494
+      Sprites360Protagonista@2x_3: -187040566150071216
+      Sprites360Protagonista@2x_4: -2831173275753654635
+      Sprites360Protagonista@2x_5: 8135670402698986285
+      Sprites360Protagonista@2x_6: 6206173331104760348
+      Sprites360Protagonista@2x_7: 5320263293312311136
+      Sprites360Protagonista@2x_8: 6070196254434181577
+      Sprites360Protagonista@2x_9: -744404781002253549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
