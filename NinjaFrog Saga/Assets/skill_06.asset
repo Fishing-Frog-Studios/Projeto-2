@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d62c9406f75dd1591e4e6f6a30de35, type: 3}
+  m_Name: skill_06
+  m_EditorClassIdentifier: 
+  skillName: skill 6
+  description: "Arremesse +3 proj\xE9teis "
+  icon: {fileID: -9083599213494348367, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
+  cost: 1
+  state: 0
+  prerequisite: {fileID: 11400000, guid: cb97ca06017e3d6a99f95ce1a6d54aa2, type: 2}
+  skillsToUnlock:
+  - {fileID: 11400000, guid: 0bd28bf3067ae21f39c88fa5de4e4458, type: 2}
+  isPathChoice: 0
+  pathsToLock: []

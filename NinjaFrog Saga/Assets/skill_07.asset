@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d62c9406f75dd1591e4e6f6a30de35, type: 3}
+  m_Name: skill_07
+  m_EditorClassIdentifier: 
+  skillName: skill 7
+  description: 3 shurikens giram ao seu redor e causam dano ao contato
+  icon: {fileID: -2278784957490639585, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
+  cost: 1
+  state: 0
+  prerequisite: {fileID: 11400000, guid: e26be28e94d96f476882008ac0140e59, type: 2}
+  skillsToUnlock:
+  - {fileID: 11400000, guid: 42a00ad8eb04275cabdb78c37a286390, type: 2}
+  isPathChoice: 0
+  pathsToLock: []
