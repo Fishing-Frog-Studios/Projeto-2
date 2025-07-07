@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: f183e95114fd4b4199f26a729cdbacce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4683231511910859832
+    second: Prancheta 25_0
+  - first:
+      213: 1435080643600304664
+    second: Prancheta 25_1
+  - first:
+      213: -9083599213494348367
+    second: Prancheta 25_2
+  - first:
+      213: 1674239708811974746
+    second: Prancheta 25_3
+  - first:
+      213: 1740683056657361694
+    second: Prancheta 25_4
+  - first:
+      213: 1446959785670090326
+    second: Prancheta 25_5
+  - first:
+      213: 8391903114403791385
+    second: Prancheta 25_6
+  - first:
+      213: -2278784957490639585
+    second: Prancheta 25_7
+  - first:
+      213: -7231018941342303789
+    second: Prancheta 25_8
+  - first:
+      213: -778148108761503141
+    second: Prancheta 25_9
+  - first:
+      213: -7873663048103463524
+    second: Prancheta 25_10
+  - first:
+      213: -868055611961938850
+    second: Prancheta 25_11
+  - first:
+      213: -6475584058761077449
+    second: Prancheta 25_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Prancheta 25_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 610
+        width: 380
+        height: 445
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 834cc5c4f3e2ef040800000000000000
+      internalID: 4683231511910859832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_1
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 634
+        width: 265
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ac5d1fd3e6ae310800000000000000
+      internalID: 1435080643600304664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_2
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 634
+        width: 265
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b5d6ad64a290f180800000000000000
+      internalID: -9083599213494348367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_3
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 634
+        width: 265
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a58579805281c3710800000000000000
+      internalID: 1674239708811974746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_4
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 319
+        width: 279
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b6a9a7406282810800000000000000
+      internalID: 1740683056657361694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_5
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 319
+        width: 279
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e142d3242a41410800000000000000
+      internalID: 1446959785670090326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_6
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 332
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 912488b9b67067470800000000000000
+      internalID: 8391903114403791385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_7
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 332
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1d444997212060e0800000000000000
+      internalID: -2278784957490639585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_8
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 332
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d9bb2d959246ab90800000000000000
+      internalID: -7231018941342303789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_9
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 24
+        width: 274
+        height: 274
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ae0aafa667335f0800000000000000
+      internalID: -778148108761503141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_10
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 32
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c957ca89c212bb290800000000000000
+      internalID: -7873663048103463524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_11
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 32
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5c69b3250c04f3f0800000000000000
+      internalID: -868055611961938850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prancheta 25_12
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 32
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d1d509b9a1226a0800000000000000
+      internalID: -6475584058761077449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 75ec4fc2255f549feb1ce3b144489276
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Prancheta 25_0: 4683231511910859832
+      Prancheta 25_1: 1435080643600304664
+      Prancheta 25_10: -7873663048103463524
+      Prancheta 25_11: -868055611961938850
+      Prancheta 25_12: -6475584058761077449
+      Prancheta 25_2: -9083599213494348367
+      Prancheta 25_3: 1674239708811974746
+      Prancheta 25_4: 1740683056657361694
+      Prancheta 25_5: 1446959785670090326
+      Prancheta 25_6: 8391903114403791385
+      Prancheta 25_7: -2278784957490639585
+      Prancheta 25_8: -7231018941342303789
+      Prancheta 25_9: -778148108761503141
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

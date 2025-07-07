@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d62c9406f75dd1591e4e6f6a30de35, type: 3}
+  m_Name: skill_10
+  m_EditorClassIdentifier: 
+  skillName: skill 10
+  description: "6 shurikens giram ao seu redor e mais r\xE1pido"
+  icon: {fileID: -7231018941342303789, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
+  cost: 1
+  state: 0
+  prerequisite: {fileID: 11400000, guid: bebc4c1b6304db42dbb8d061a9810465, type: 2}
+  skillsToUnlock: []
+  isPathChoice: 0
+  pathsToLock: []

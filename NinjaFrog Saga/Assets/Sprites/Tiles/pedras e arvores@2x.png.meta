@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pedras e arvores@2x_0: 3164368508049987719
+      pedras e arvores@2x_1: -388781736804738876
+      pedras e arvores@2x_2: 7494271587565644599
+      pedras e arvores@2x_3: 962098169853207480
+      pedras e arvores@2x_4: -1672144523006518460
+      pedras e arvores@2x_5: 3667220007025893981
+      pedras e arvores@2x_6: 5966438327051802792
+      pedras e arvores@2x_7: -7399819583856278857
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
