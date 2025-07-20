@@ -4,12 +4,17 @@ public class DataPlayer : MonoBehaviour
 {
     public static DataPlayer Instace { get; private set; }
 
+    //madao colocou essas duas variaveis pra pegar a posicao do sapo pra salvar dps.
+    public float posicaoSalvaX;
+    public float posicaoSalvaY;
+
+
     // Status do Jogador
 
-    [Header ("Nome do Personagem")]
+    [Header("Nome do Personagem")]
     public string nome = "Werbet";
 
-    [Header ("Level do Jogador")]
+    [Header("Level do Jogador")]
     public int level = 0;
 
     [Header("Vida Maxima")]
@@ -24,11 +29,12 @@ public class DataPlayer : MonoBehaviour
     [Header("Velocidade do jogador")]
     public float moveSpeed = 1f;
 
-    [Header ("velocidade de ataque")]
+    [Header("velocidade de ataque")]
     public float ataqueSpeed = 0.5f;
 
-    [Header("damege base")]
+    [Header("damege base")] //david, é DAMAGE
     public float dano;
+
 
     private void Awake()
     {
@@ -39,12 +45,11 @@ public class DataPlayer : MonoBehaviour
             return;
         }
 
-        Instace = this; 
+        Instace = this;
 
         //Continua entre as cenas
-        DontDestroyOnLoad (gameObject);
+        DontDestroyOnLoad(gameObject);
     }
-
 
 
 }
