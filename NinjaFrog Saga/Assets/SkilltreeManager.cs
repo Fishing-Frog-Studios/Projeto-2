@@ -3,122 +3,103 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-// Este é o cérebro do sistema. Coloque em um objeto vazio na cena.
 public class SkillTreeManager : MonoBehaviour
 {
-    [Header("Data & Player Stats")]
-    [Tooltip("Arraste o asset SkillTree_SO que contém a lista de todas as skills.")]
+    [Header("Data Source")]
     public SkillTree_SO playerSkillTree;
-    [Tooltip("Pontos de habilidade que o jogador possui atualmente.")]
-    public int playerSkillPoints = 10;
 
-    [Header("UI References - Info Panel")]
-    [Tooltip("O texto que exibe a descrição da habilidade selecionada.")]
+    public static bool CanSeeEnemyHealth { get; private set; }
+    
+    // Flag para garantir que o estado inicial das skills só seja definido uma vez por sessão de jogo.
+    private static bool hasSkillTreeBeenInitialized = false;
+
+    [Header("UI References")]
     public TextMeshProUGUI descriptionText;
-    [Tooltip("O texto que exibe o nome da habilidade selecionada.")]
     public TextMeshProUGUI skillNameText;
-    [Tooltip("A imagem que exibe o ícone da habilidade selecionada.")]
     public Image skillIcon;
-    [Tooltip("O texto que exibe a quantidade de pontos de habilidade.")]
     public TextMeshProUGUI pointsText;
-    [Tooltip("O botão para comprar a habilidade selecionada.")]
     public Button evolveButton;
-
-    [Header("UI References - Node List")]
-    [Tooltip("A lista de todos os GameObjects de nós da árvore que você posicionou manualmente na cena.")]
     public List<SkillNodeUI> manualNodes;
 
     private SkillNodeUI selectedNode;
 
-    void Start()
+    // Usamos OnEnable porque ele é chamado toda vez que o objeto (e a cena) se torna ativo.
+    // Isso é mais confiável do que Start/Awake para UIs que são carregadas e descarregadas.
+    private void OnEnable()
     {
-        // 1. Prepara os dados das skills
-        InitializeSkillTree();
-        
-        // 2. Conecta os dados aos nós da UI que já estão na cena
+        // Se o estado da árvore de skills ainda não foi definido nesta sessão de jogo...
+        if (!hasSkillTreeBeenInitialized)
+        {
+            InitializeSkillTreeState();
+            hasSkillTreeBeenInitialized = true;
+        }
+
         SetupManualNodes(); 
-        
-        // 3. Atualiza a UI inicial
         UpdatePointsUI();
-        
-        // 4. Adiciona a função ao clique do botão
-        evolveButton.onClick.AddListener(EvolveSelectedSkill);
-        
-        // 5. Garante que nada esteja selecionado no início
+        if (evolveButton != null)
+        {
+            // Removemos para evitar adicionar o mesmo listener múltiplas vezes.
+            evolveButton.onClick.RemoveAllListeners(); 
+            evolveButton.onClick.AddListener(EvolveSelectedSkill);
+        }
         ClearSelection();
     }
     
-    // Reseta o estado de todas as skills no início do jogo.
-    void InitializeSkillTree()
+    // Define o estado inicial de todas as skills.
+    void InitializeSkillTreeState()
     {
+        if (playerSkillTree == null || playerSkillTree.allSkills == null) return;
+
         foreach (var skill in playerSkillTree.allSkills)
         {
-            // Se a skill não tem pré-requisito, ela está disponível. Senão, está bloqueada.
-            if (skill.prerequisite == null)
+            // O estado "desbloqueado" de uma skill deve persistir.
+            if (skill.state != SkillData.SkillState.Unlocked)
             {
-                skill.state = SkillData.SkillState.Available;
-            }
-            else
-            {
-                skill.state = SkillData.SkillState.Locked;
+                // Se não tem pré-requisito, está disponível. Senão, está bloqueada.
+                skill.state = (skill.prerequisite == null) 
+                    ? SkillData.SkillState.Available 
+                    : SkillData.SkillState.Locked;
             }
         }
     }
 
-    // Associa cada nó da UI posicionado manualmente a um dado de skill.
     void SetupManualNodes()
     {
         if (manualNodes.Count != playerSkillTree.allSkills.Count)
         {
-            Debug.LogError("ERRO: O número de nós na UI (" + manualNodes.Count + ") é diferente do número de skills nos dados (" + playerSkillTree.allSkills.Count + ")!");
+            Debug.LogError("ERRO: O número de nós na UI é diferente do número de skills nos dados!");
             return;
         }
-
         for (int i = 0; i < playerSkillTree.allSkills.Count; i++)
         {
-            // Pega o nó da UI e o dado da skill na mesma ordem e os associa.
             manualNodes[i].Setup(playerSkillTree.allSkills[i], this);
         }
     }
 
-    // Chamado pelo script SkillNodeUI quando um nó é clicado.
     public void OnSkillNodeSelected(SkillNodeUI node)
     {
         selectedNode = node;
-
-        // Atualiza o painel de informações com os dados da skill clicada.
         descriptionText.text = node.assignedSkill.description;
         skillNameText.text = node.assignedSkill.skillName;
         skillIcon.sprite = node.assignedSkill.icon;
-        skillIcon.enabled = true; // Mostra a imagem do ícone
-
-        // Habilita ou desabilita o botão "Evoluir" baseado nas condições.
-        evolveButton.interactable = (node.assignedSkill.state == SkillData.SkillState.Available && playerSkillPoints >= node.assignedSkill.cost);
+        skillIcon.enabled = true;
+        
+        // <<< CORRIGIDO: Usa DataPlayer.Instance >>>
+        if (DataPlayer.Instance != null)
+        {
+            evolveButton.interactable = (node.assignedSkill.state == SkillData.SkillState.Available && DataPlayer.Instance.skillPoints >= node.assignedSkill.cost);
+        }
     }
 
-    // Chamado quando o botão "Evoluir" é clicado.
-  public void EvolveSelectedSkill()
+    public void EvolveSelectedSkill()
     {
+        // <<< CORRIGIDO: Usa DataPlayer.Instance >>>
         if (selectedNode == null || selectedNode.assignedSkill.state != SkillData.SkillState.Available) return;
-        if (playerSkillPoints < selectedNode.assignedSkill.cost) return;
+        if (DataPlayer.Instance == null || DataPlayer.Instance.skillPoints < selectedNode.assignedSkill.cost) return;
 
-        // 1. Subtrai os pontos e atualiza o estado da skill comprada.
-        playerSkillPoints -= selectedNode.assignedSkill.cost;
+        DataPlayer.Instance.skillPoints -= selectedNode.assignedSkill.cost;
         selectedNode.assignedSkill.state = SkillData.SkillState.Unlocked;
 
-        // 2. Lógica de bloqueio de caminhos alternativos.
-        if (selectedNode.assignedSkill.isPathChoice)
-        {
-            foreach (var path in selectedNode.assignedSkill.pathsToLock)
-            {
-                if (path != null && path.state == SkillData.SkillState.Available) 
-                {
-                    path.state = SkillData.SkillState.Locked;
-                }
-            }
-        }
-        
-        // 3. Libera as próximas skills na árvore.
         foreach (var skillToUnlock in selectedNode.assignedSkill.skillsToUnlock)
         {
              if (skillToUnlock != null) 
@@ -127,23 +108,57 @@ public class SkillTreeManager : MonoBehaviour
              }
         }
         
-        // 4. Atualiza toda a UI para refletir as mudanças.
+        ApplySkillEffect(selectedNode.assignedSkill);
+        
         RefreshAllNodes();
         UpdatePointsUI();
-        ClearSelection(); // Limpa a seleção para evitar compras repetidas.
+        ClearSelection();
     }
     
-    // Limpa o painel de informações.
+    private void ApplySkillEffect(SkillData skill)
+    {
+        if (skill == null) return;
+        
+        // <<< CORRIGIDO: Usa DataPlayer.Instance >>>
+        if (DataPlayer.Instance == null)
+        {
+            Debug.LogError("ERRO CRÍTICO: DataPlayer.Instance não foi encontrado!");
+            return;
+        }
+
+        switch (skill.skillName)
+        {
+            case "skill 2": // <<< Use o nome exato da sua skill, exemplo.
+                if (DataPlayer.Instance.playerHealthSystem != null)
+                {
+                    DataPlayer.Instance.playerHealthSystem.IncreaseMaxHealth(200);
+                    DataPlayer.Instance.vidaMaxima = DataPlayer.Instance.playerHealthSystem.GetMaxHealth();
+                }
+                break;
+
+            case "skill 3": // <<< Use o nome exato da sua skill, exemplo.
+                CanSeeEnemyHealth = true;
+                break;
+            
+            case "skill 1": // <<< Use o nome exato da sua skill, exemplo.
+                DataPlayer.Instance.danoBase *= 1.20f;
+                break;
+            
+            default:
+                Debug.LogWarning($"Skill '{skill.skillName}' comprada, mas nenhum efeito foi implementado.");
+                break;
+        }
+    }
+    
     void ClearSelection()
     {
         selectedNode = null;
         descriptionText.text = "Selecione uma habilidade para ver a descrição.";
         skillNameText.text = "";
-        skillIcon.enabled = false; // Esconde a imagem do ícone
-        evolveButton.interactable = false;
+        skillIcon.enabled = false;
+        if(evolveButton != null) evolveButton.interactable = false;
     }
 
-    // Pede para cada nó da UI se redesenhar com base no seu novo estado.
     void RefreshAllNodes()
     {
         foreach (var nodeUI in manualNodes)
@@ -152,9 +167,12 @@ public class SkillTreeManager : MonoBehaviour
         }
     }
     
-    // Atualiza o texto que mostra os pontos de habilidade.
     void UpdatePointsUI()
     {
-        pointsText.text = playerSkillPoints.ToString() + " pt";
+        // <<< CORRIGIDO: Usa DataPlayer.Instance >>>
+        if (DataPlayer.Instance != null)
+        {
+            pointsText.text = DataPlayer.Instance.skillPoints.ToString() + " pt";
+        }
     }
 }

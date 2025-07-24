@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Background
   - Character
-  - 
+  - Enemies
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: WorldSpaceUI
+    uniqueID: 3569070619
     locked: 0
   m_RenderingLayers:
   - Default

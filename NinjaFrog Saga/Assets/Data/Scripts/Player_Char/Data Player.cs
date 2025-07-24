@@ -2,49 +2,55 @@ using UnityEngine;
 
 public class DataPlayer : MonoBehaviour
 {
-    public static DataPlayer Instace { get; private set; }
+    // <<< CORRIGIDO: "Instance" com 'n' >>>
+    public static DataPlayer Instance { get; private set; }
 
-    // Status do Jogador
-
-    [Header ("Nome do Personagem")]
+    [Header("Player Stats")]
     public string nome = "Werbet";
-
-    [Header ("Level do Jogador")]
     public int level = 0;
-
-    [Header("Vida Maxima")]
-    public float Vida = 1f;
-
-    [Header("Mana Maxima")]
-    public float Mana = 1f;
-
-    [Header("Quantidade de Ouro")]
+    public float vidaMaxima = 500f;
+    public float manaMaxima = 1f;
     public int ouro = 0;
-
-    [Header("Velocidade do jogador")]
-    public float moveSpeed = 1f;
-
-    [Header ("velocidade de ataque")]
+    public float moveSpeed = 5f;
     public float ataqueSpeed = 0.5f;
+    public float danoBase = 50f;
+    
+    [Header("Skill System")]
+    public int skillPoints = 10;
 
-    [Header("damege base")]
-    public float dano;
-
+    [Header("Player References")]
+    public HealthSystem playerHealthSystem;
+    public Transform playerTransform;
+    
+    [Header("System References")]
+    public Camera mainCamera; 
+    
     private void Awake()
     {
-        //Detecta e exclui se ja presente
-        if (Instace != null && Instace != this)
+        // <<< CORRIGIDO: "Instance" com 'n' >>>
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-
-        Instace = this; 
-
-        //Continua entre as cenas
-        DontDestroyOnLoad (gameObject);
+        // <<< CORRIGIDO: "Instance" com 'n' >>>
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    
+    public void RegisterPlayerReferences(HealthSystem health, Transform trans, Camera cam)
+    {
+        playerHealthSystem = health;
+        playerTransform = trans;
+        mainCamera = cam;
+        InitializePlayer();
     }
 
-
-
+    private void InitializePlayer()
+    {
+        if (playerHealthSystem != null)
+        {
+            playerHealthSystem.SetInitialHealth(vidaMaxima);
+        }
+    }
 }
