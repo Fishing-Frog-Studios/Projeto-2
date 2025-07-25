@@ -16,9 +16,6 @@ MonoBehaviour:
   description: +20 de dano
   icon: {fileID: 1740683056657361694, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
   cost: 1
-  state: 1
+  state: 2
   prerequisite: {fileID: 0}
-  skillsToUnlock:
-  - {fileID: 11400000, guid: a5156f9d591d0bb95bb0b70f55a79d70, type: 2}
-  isPathChoice: 0
-  pathsToLock: []
+  isPathStarter: 0

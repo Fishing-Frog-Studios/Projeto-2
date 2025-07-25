@@ -16,11 +16,6 @@ MonoBehaviour:
   description: "Arremesse +1 proj\xE9til"
   icon: {fileID: 8391903114403791385, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
   cost: 1
-  state: 0
+  state: 2
   prerequisite: {fileID: 11400000, guid: a5156f9d591d0bb95bb0b70f55a79d70, type: 2}
-  skillsToUnlock:
-  - {fileID: 11400000, guid: bebc4c1b6304db42dbb8d061a9810465, type: 2}
-  isPathChoice: 1
-  pathsToLock:
-  - {fileID: 11400000, guid: cb97ca06017e3d6a99f95ce1a6d54aa2, type: 2}
-  - {fileID: 11400000, guid: d372166b34ff54e55b22ccb532d44b5b, type: 2}
+  isPathStarter: 1

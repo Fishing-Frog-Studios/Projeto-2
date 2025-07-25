@@ -17,11 +17,6 @@ MonoBehaviour:
     2x de dano"
   icon: {fileID: -7873663048103463524, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
   cost: 1
-  state: 0
+  state: 1
   prerequisite: {fileID: 11400000, guid: a5156f9d591d0bb95bb0b70f55a79d70, type: 2}
-  skillsToUnlock:
-  - {fileID: 11400000, guid: 2e088f78137c7056cb18d16f860eb6b0, type: 2}
-  isPathChoice: 1
-  pathsToLock:
-  - {fileID: 11400000, guid: cb97ca06017e3d6a99f95ce1a6d54aa2, type: 2}
-  - {fileID: 11400000, guid: e26be28e94d96f476882008ac0140e59, type: 2}
+  isPathStarter: 1

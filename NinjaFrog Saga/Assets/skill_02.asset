@@ -16,11 +16,6 @@ MonoBehaviour:
   description: +200 HP
   icon: {fileID: 1446959785670090326, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
   cost: 1
-  state: 0
+  state: 2
   prerequisite: {fileID: 11400000, guid: 24c4967b0112cc6b8aa269fb9b04b47c, type: 2}
-  skillsToUnlock:
-  - {fileID: 11400000, guid: cb97ca06017e3d6a99f95ce1a6d54aa2, type: 2}
-  - {fileID: 11400000, guid: e26be28e94d96f476882008ac0140e59, type: 2}
-  - {fileID: 11400000, guid: d372166b34ff54e55b22ccb532d44b5b, type: 2}
-  isPathChoice: 0
-  pathsToLock: []
+  isPathStarter: 0

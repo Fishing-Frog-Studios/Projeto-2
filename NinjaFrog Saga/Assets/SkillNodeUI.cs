@@ -38,19 +38,19 @@ public class SkillNodeUI : MonoBehaviour
 
         switch (assignedSkill.state)
         {
-            case SkillData.SkillState.Locked:
+            case SkillState.Locked:
                 iconImage.sprite = lockedIcon;
                 skillButton.interactable = false;
                 backgroundFrameImage.enabled = false; // <<< ESCONDE A BORDA
                 break;
 
-            case SkillData.SkillState.Available:
+            case SkillState.Available:
                 iconImage.sprite = assignedSkill.icon;
                 skillButton.interactable = true;
                 backgroundFrameImage.enabled = false; // <<< ESCONDE A BORDA
                 break;
 
-            case SkillData.SkillState.Unlocked:
+            case SkillState.Unlocked:
                 iconImage.sprite = assignedSkill.icon;
                 skillButton.interactable = false; // Já foi comprada
                 

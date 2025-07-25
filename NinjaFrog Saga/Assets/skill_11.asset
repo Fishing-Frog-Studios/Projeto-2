@@ -16,9 +16,6 @@ MonoBehaviour:
   description: "menos 2s para ficar inv\xEDsivel e +100 HP"
   icon: {fileID: -6475584058761077449, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
   cost: 1
-  state: 2
+  state: 0
   prerequisite: {fileID: 11400000, guid: 2e088f78137c7056cb18d16f860eb6b0, type: 2}
-  skillsToUnlock:
-  - {fileID: 0}
-  isPathChoice: 0
-  pathsToLock: []
+  isPathStarter: 0

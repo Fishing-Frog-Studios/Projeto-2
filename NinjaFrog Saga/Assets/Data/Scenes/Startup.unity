@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597fe83cb7b1bb1448e42cee5a2a0717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSkillTree: {fileID: 11400000, guid: 7e6ec4342fabf4109a93c63320f81c9c, type: 2}
   nome: Werbet
   level: 0
   vidaMaxima: 500
@@ -205,8 +206,22 @@ MonoBehaviour:
   ataqueSpeed: 0.5
   danoBase: 50
   skillPoints: 10
+  pathHasBeenChosen: 0
+  projectileCount: 1
+  maxAmmo: 5
+  currentAmmo: 0
+  ammoRegenRate: 2
+  canBecomeInvisible: 0
+  timeToBecomeInvisible: 5
+  isInvisible: 0
+  nextAttackHasBonusDamage: 0
+  currentAttackMode: 0
+  orbitingProjectilesCount: 5
+  orbitDuration: 1
+  orbitRadius: 2.5
   playerHealthSystem: {fileID: 0}
   playerTransform: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!4 &1520732722
 Transform:
   m_ObjectHideFlags: 0

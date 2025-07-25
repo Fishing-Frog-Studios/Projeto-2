@@ -1,10 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Controla uma barra de vida em World Space que flutua sobre um alvo.
-/// A barra só é ativada se a skill correspondente no SkillTreeManager for comprada.
-/// </summary>
+[RequireComponent(typeof(Canvas))] // Garante que sempre haja um Canvas
 public class EnemyHealthBarController : MonoBehaviour
 {
     [Tooltip("A referência para o componente Slider que representa a barra de vida.")]
@@ -15,64 +12,77 @@ public class EnemyHealthBarController : MonoBehaviour
 
     private HealthSystem currentTarget;
     private Camera mainCamera;
+    private Canvas canvas; // Referência para o Canvas
+
+    // Flag para garantir que a configuração inicial aconteça apenas uma vez.
+    private bool isInitialized = false;
 
     private void Awake()
     {
-        // Garante que a barra de vida sempre comece o jogo escondida.
-        gameObject.SetActive(false);
-    }
-
-    private void Start()
-    {
-        // Guarda a referência da câmera principal para otimização.
+        // Pega as referências no Awake para garantir que existam
+        canvas = GetComponent<Canvas>();
         mainCamera = Camera.main;
+
+        // Esconde a barra de vida no início desativando o Canvas.
+        // O script continua rodando, mas nada é desenhado na tela.
+        if (canvas != null)
+        {
+            canvas.enabled = false;
+        }
     }
 
+    // Update verifica constantemente se as condições para mostrar a barra foram atendidas.
+    private void Update()
+    {
+        // Se a barra já estiver visível, não precisamos fazer nada aqui.
+        if (canvas.enabled) return;
+
+        // Se o alvo já foi definido E o jogador comprou a skill...
+        if (isInitialized && SkillTreeManager.CanSeeEnemyHealth)
+        {
+            // ... então ativamos o Canvas da barra de vida!
+            Debug.Log("Skill ativada! Mostrando barra de vida para: " + currentTarget.name);
+            canvas.enabled = true;
+            UpdateHealthBar(currentTarget.GetCurrentHealth(), currentTarget.GetMaxHealth());
+        }
+    }
+
+    // LateUpdate é melhor para seguir a câmera e objetos que se movem na física.
     private void LateUpdate()
     {
         if (currentTarget == null || mainCamera == null) return;
-
-        // Faz a barra de vida seguir a posição do alvo no mundo, com um deslocamento vertical.
-        transform.position = currentTarget.transform.position + Vector3.up * verticalOffset;
         
-        // Faz a barra de vida sempre olhar para a câmera.
+        transform.position = currentTarget.transform.position + Vector3.up * verticalOffset;
         transform.rotation = mainCamera.transform.rotation;
     }
     
     public void SetTarget(HealthSystem newTarget)
     {
-        if (currentTarget != null)
-        {
-            currentTarget.OnHealthChanged.RemoveListener(UpdateHealthBar);
-        }
+        if (newTarget == null) return;
+        
+        Debug.Log("HealthBarController recebeu o alvo: " + newTarget.gameObject.name);
 
         currentTarget = newTarget;
+        currentTarget.OnHealthChanged.AddListener(UpdateHealthBar);
+        isInitialized = true;
 
-        if (newTarget == null)
-        {
-            gameObject.SetActive(false);
-            return;
-        }
-        
-        if (SkillTreeManager.CanSeeEnemyHealth)
-        {
-            gameObject.SetActive(true);
-            newTarget.OnHealthChanged.AddListener(UpdateHealthBar);
-            UpdateHealthBar(newTarget.GetCurrentHealth(), newTarget.GetMaxHealth());
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
+        // Força uma verificação imediata para o caso de o inimigo ser criado
+        // DEPOIS que a skill já foi comprada.
+        Update(); 
     }
     
     private void UpdateHealthBar(float currentHealth, float maxHealth)
     {
-        if (healthSlider == null || currentTarget == null) return;
+        if (healthSlider == null || currentTarget == null || maxHealth <= 0) return;
         
-        if (maxHealth > 0)
+        healthSlider.value = currentHealth / maxHealth;
+    }
+    
+    private void OnDestroy()
+    {
+        if (currentTarget != null)
         {
-            healthSlider.value = currentHealth / maxHealth;
+            currentTarget.OnHealthChanged.RemoveListener(UpdateHealthBar);
         }
     }
 }
