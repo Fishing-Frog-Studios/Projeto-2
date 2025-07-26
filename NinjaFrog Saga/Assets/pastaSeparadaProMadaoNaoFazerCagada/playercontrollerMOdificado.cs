@@ -19,6 +19,9 @@ public class PlayerControllerMOdificado : MonoBehaviour
     //madao new
     [Header("UI de Debug")]
     public TMP_Text debugText;
+    //madao - pra colocar o projetil do sapo
+    public GameObject projetil;
+    
 
     private void Awake()
     {
@@ -29,7 +32,7 @@ public class PlayerControllerMOdificado : MonoBehaviour
             return;
         }
         Instance = this;
-        
+
         // Instancia os controles do novo Input System
         controls = new PlayerControls();
 
