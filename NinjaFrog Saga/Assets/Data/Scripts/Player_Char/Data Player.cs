@@ -9,34 +9,33 @@ public class DataPlayer : MonoBehaviour
     public static DataPlayer Instance { get; private set; }
 
     [Header("Data Sources")]
-    // Referência à árvore de skills, essencial para a lógica de reset.
     public SkillTree_SO playerSkillTree;
 
     [Header("Player Stats")]
     public string nome = "Werbet";
     public int level = 0;
-    public float vidaMaxima = 500f;
+    public float vidaMaxima = 700f;
     public float manaMaxima = 1f;
     public int ouro = 0;
     public float moveSpeed = 5f;
-    public float ataqueSpeed = 2.0f;
-    public float danoBase = 50f;
+    public float ataqueSpeed = 0.4f;
+    public float danoBase = 60f;
 
     [Header("Skill System")]
-    public int skillPoints = 10;
+    public int skillPoints = 6;
     public bool pathHasBeenChosen = false;
+    public bool hasPostInvisibilityBuffSkill = false; 
 
     [Header("Projectile Skills")]
     public int projectileCount = 1;
     public int maxAmmo = 5;
     public int currentAmmo;
     public float ammoRegenRate = 2f;
-    // Flag para ativar/desativar a lógica de projéteis teleguiados.
     public bool projectilesAreHoming = false;
 
     [Header("Invisibility Skills")]
     public bool canBecomeInvisible = false;
-    public float timeToBecomeInvisible = 5f;
+    public float timeToBecomeInvisible = 3f;
     public bool isInvisible = false;
     public bool nextAttackHasBonusDamage = false;
 
@@ -55,7 +54,6 @@ public class DataPlayer : MonoBehaviour
 
     private void Awake()
     {
-        // Lógica do Singleton para garantir que só exista uma instância.
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -64,41 +62,38 @@ public class DataPlayer : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // --- ROTINA DE RESET DO JOGO ---
-        // Executada uma única vez quando o jogo inicia.
-        ResetSkillTree();
+        // A rotina de reset agora garante que a árvore esteja sempre limpa no início.
+        ResetGameDataAndSkillTree();
         
-        // Inicia a munição do jogador.
         currentAmmo = maxAmmo;
     }
 
     /// <summary>
-    /// Reseta o estado de todas as skills para 'Locked' e a escolha de caminho.
-    /// Essencial para que os testes no editor comecem sempre com uma árvore limpa.
+    /// <<< MÉTODO CORRIGIDO E MELHORADO >>>
+    /// Reseta o estado de todas as skills e os dados do jogador para o início.
+    /// Isso previne que o estado 'Unlocked' salvo no editor quebre o jogo.
     /// </summary>
-    private void ResetSkillTree()
+    private void ResetGameDataAndSkillTree()
     {
         if (playerSkillTree != null && playerSkillTree.allSkills != null)
         {
             foreach (var skill in playerSkillTree.allSkills)
             {
-                // Força o estado de todas as skills a começarem como bloqueadas.
+                // Força TODAS as skills a começarem como 'Locked', ignorando o que está salvo no arquivo.
                 skill.state = SkillState.Locked;
             }
 
-            // Reseta a flag de escolha de caminho.
             pathHasBeenChosen = false;
-            
-            // Desativa a flag de projéteis teleguiados no início de cada jogo.
             projectilesAreHoming = false;
+            hasPostInvisibilityBuffSkill = false;
+            
+            // Você também pode resetar os stats base aqui, se quiser
+            // Ex: vidaMaxima = 700; danoBase = 60; etc.
 
-            Debug.Log("DataPlayer: Estado da Skill Tree foi resetado para o início do jogo.");
+            Debug.Log("DataPlayer: Estado do Jogo e da Skill Tree foi resetado para o início.");
         }
     }
 
-    /// <summary>
-    /// Método chamado por outros scripts (como o PlayerRegistrar) para conectar o jogador.
-    /// </summary>
     public void RegisterPlayerReferences(HealthSystem health, Transform trans, Camera cam)
     {
         playerHealthSystem = health;
@@ -107,9 +102,6 @@ public class DataPlayer : MonoBehaviour
         InitializePlayer();
     }
 
-    /// <summary>
-    /// Define os status iniciais do jogador com base nos valores do DataPlayer.
-    /// </summary>
     private void InitializePlayer()
     {
         if (playerHealthSystem != null)

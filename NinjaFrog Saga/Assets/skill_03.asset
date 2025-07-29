@@ -16,6 +16,6 @@ MonoBehaviour:
   description: Permite ver barra de HP dos inimigos
   icon: {fileID: 1435080643600304664, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
   cost: 1
-  state: 1
+  state: 0
   prerequisite: {fileID: 11400000, guid: a5156f9d591d0bb95bb0b70f55a79d70, type: 2}
   isPathStarter: 1

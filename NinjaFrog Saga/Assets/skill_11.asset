@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d62c9406f75dd1591e4e6f6a30de35, type: 3}
   m_Name: skill_11
   m_EditorClassIdentifier: 
-  skillName: 'skill 11 '
+  skillName: skill 11
   description: "menos 2s para ficar inv\xEDsivel e +100 HP"
   icon: {fileID: -6475584058761077449, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
   cost: 1

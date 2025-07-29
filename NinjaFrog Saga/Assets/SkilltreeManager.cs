@@ -19,6 +19,11 @@ public class SkillTreeManager : MonoBehaviour
     public List<SkillNodeUI> manualNodes;
 
     private SkillNodeUI selectedNode;
+    
+    private void Awake()
+    {
+        CanSeeEnemyHealth = false;
+    }
 
     private void OnEnable()
     {
@@ -107,63 +112,74 @@ public class SkillTreeManager : MonoBehaviour
         ClearSelection();
     }
     
-    // <<< MÉTODO TOTALMENTE CORRIGIDO >>>
+    // <<< VERSÃO FINAL COM TODAS AS 11 SKILLS IMPLEMENTADAS >>>
     private void ApplySkillEffect(SkillData skill)
     {
         if (skill == null || DataPlayer.Instance == null) return;
-
-        // O switch agora usa os nomes corretos das suas skills ("skill 1", "skill 2", etc.)
-        switch (skill.skillName)
+        
+        switch (skill.skillName.Trim())
         {
-            case "skill 1": // +20% de dano
+            case "skill 1": // +20% Dano
                 DataPlayer.Instance.danoBase *= 1.20f;
                 break;
+
             case "skill 2": // +200 HP
+                DataPlayer.Instance.vidaMaxima += 200;
                 if (DataPlayer.Instance.playerHealthSystem != null)
                 {
                     DataPlayer.Instance.playerHealthSystem.IncreaseMaxHealth(200);
-                    DataPlayer.Instance.vidaMaxima = DataPlayer.Instance.playerHealthSystem.GetMaxHealth();
                 }
                 break;
-            case "skill 3": // Veja a barra de vida dos inimigos
+
+            case "skill 3": // Ver vida dos inimigos
                 CanSeeEnemyHealth = true;
-                // A notificação para os inimigos agora é tratada por eles mesmos.
                 break;
-            case "skill 4": // Arremessa 2 projéteis
-                DataPlayer.Instance.projectileCount = 2; // Define o total de projéteis como 2
+
+            case "skill 4": // 2 projéteis
+                DataPlayer.Instance.projectileCount = 2;
                 break;
-            case "skill 5": // Invisibilidade
+
+            case "skill 5": // Pode ficar invisível
                 DataPlayer.Instance.canBecomeInvisible = true;
-                DataPlayer.Instance.timeToBecomeInvisible = 3f;
                 break;
+                
             case "skill 6": // +3 de espaço de projétil
                 DataPlayer.Instance.maxAmmo += 3;
-                DataPlayer.Instance.currentAmmo += 3;
+                DataPlayer.Instance.currentAmmo += 3; // Também adiciona munição atual para o bônus ser imediato
                 break;
+                
             case "skill 7": // 3 projéteis giram ao redor
                 DataPlayer.Instance.currentAttackMode = AttackMode.Orbiting;
-                DataPlayer.Instance.orbitingProjectilesCount = 3; // Define o total de projéteis como 3
+                DataPlayer.Instance.orbitingProjectilesCount = 3;
                 break;
-            case "skill 8": // -20% no tempo de recarga
-                DataPlayer.Instance.ataqueSpeed *= 0.80f;
+
+            case "skill 8": // Buff pós-invisibilidade (Não é -20% de recarga)
+                DataPlayer.Instance.hasPostInvisibilityBuffSkill = true;
                 break;
+                
             case "skill 9": // +20% de dano e projéteis teleguiados
                 DataPlayer.Instance.danoBase *= 1.20f;
                 DataPlayer.Instance.projectilesAreHoming = true;
                 break;
+
             case "skill 10": // 6 projéteis que giram mais rápido
                 DataPlayer.Instance.orbitingProjectilesCount = 6;
-                DataPlayer.Instance.orbitDuration *= 0.75f;
+                DataPlayer.Instance.orbitDuration *= 0.75f; // Reduz a duração em 25% para girar mais rápido
                 break;
-            case "skill 11": // -2s para ficar invisível e +100 de vida
+
+            case "skill 11": // Invisibilidade melhorada e +100 HP
                 DataPlayer.Instance.timeToBecomeInvisible -= 2f;
-                if (DataPlayer.Instance.timeToBecomeInvisible < 0.5f) DataPlayer.Instance.timeToBecomeInvisible = 0.5f;
+                if (DataPlayer.Instance.timeToBecomeInvisible < 1f)
+                {
+                    DataPlayer.Instance.timeToBecomeInvisible = 1f;
+                }
+                DataPlayer.Instance.vidaMaxima += 100;
                 if (DataPlayer.Instance.playerHealthSystem != null)
                 {
                     DataPlayer.Instance.playerHealthSystem.IncreaseMaxHealth(100);
-                    DataPlayer.Instance.vidaMaxima = DataPlayer.Instance.playerHealthSystem.GetMaxHealth();
                 }
                 break;
+
             default:
                 Debug.LogWarning($"Skill '{skill.skillName}' comprada, mas nenhum efeito foi implementado.");
                 break;
@@ -171,26 +187,28 @@ public class SkillTreeManager : MonoBehaviour
     }
     
     void ClearSelection()
-      {
-    selectedNode = null; // Remove a referência ao nó selecionado
-
-    // Limpa os textos e desativa o ícone
-    descriptionText.text = "Selecione uma habilidade para ver os detalhes.";
-    skillNameText.text = "Nenhuma Habilidade Selecionada";
-    skillIcon.enabled = false;
-    
-    // Desativa o botão de evoluir
-    evolveButton.interactable = false;
-    }
-    void RefreshAllNodes()
-      {
-    // Percorre cada um dos nós da UI que você conectou no Inspector.
-    foreach (SkillNodeUI node in manualNodes)
     {
-        // Pede para cada nó individualmente atualizar sua aparência
-        // com base no estado atual do seu 'assignedSkill'.
-        node.UpdateVisuals();
+        selectedNode = null;
+        descriptionText.text = "Selecione uma habilidade para ver os detalhes.";
+        skillNameText.text = "Nenhuma Habilidade Selecionada";
+        
+        if(skillIcon != null) skillIcon.enabled = false;
+        if(evolveButton != null) evolveButton.interactable = false;
     }
-}
-    void UpdatePointsUI() { /* ... */ }
+
+    void RefreshAllNodes()
+    {
+        foreach (SkillNodeUI node in manualNodes)
+        {
+            if(node != null) node.UpdateVisuals();
+        }
+    }
+
+    void UpdatePointsUI() 
+    {
+        if (pointsText != null && DataPlayer.Instance != null)
+        {
+            pointsText.text = $"Pontos: {DataPlayer.Instance.skillPoints}";
+        }
+    }
 }

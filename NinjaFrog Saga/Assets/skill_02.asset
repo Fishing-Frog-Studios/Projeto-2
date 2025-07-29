@@ -16,6 +16,6 @@ MonoBehaviour:
   description: +200 HP
   icon: {fileID: 1446959785670090326, guid: f183e95114fd4b4199f26a729cdbacce, type: 3}
   cost: 1
-  state: 2
+  state: 0
   prerequisite: {fileID: 11400000, guid: 24c4967b0112cc6b8aa269fb9b04b47c, type: 2}
   isPathStarter: 0

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Canvas))] // Garante que sempre haja um Canvas
+[RequireComponent(typeof(Canvas))]
 public class EnemyHealthBarController : MonoBehaviour
 {
     [Tooltip("A referência para o componente Slider que representa a barra de vida.")]
@@ -12,44 +12,35 @@ public class EnemyHealthBarController : MonoBehaviour
 
     private HealthSystem currentTarget;
     private Camera mainCamera;
-    private Canvas canvas; // Referência para o Canvas
-
-    // Flag para garantir que a configuração inicial aconteça apenas uma vez.
-    private bool isInitialized = false;
+    private Canvas canvas;
 
     private void Awake()
     {
-        // Pega as referências no Awake para garantir que existam
         canvas = GetComponent<Canvas>();
         mainCamera = Camera.main;
 
-        // Esconde a barra de vida no início desativando o Canvas.
-        // O script continua rodando, mas nada é desenhado na tela.
+        // O Canvas começa desativado por padrão.
         if (canvas != null)
         {
             canvas.enabled = false;
         }
     }
 
-    // Update verifica constantemente se as condições para mostrar a barra foram atendidas.
+    // <<< LÓGICA DO UPDATE CORRIGIDA E SIMPLIFICADA >>>
     private void Update()
     {
-        // Se a barra já estiver visível, não precisamos fazer nada aqui.
-        if (canvas.enabled) return;
+        // Se não temos um alvo, não há o que fazer.
+        if (currentTarget == null) return;
 
-        // Se o alvo já foi definido E o jogador comprou a skill...
-        if (isInitialized && SkillTreeManager.CanSeeEnemyHealth)
-        {
-            // ... então ativamos o Canvas da barra de vida!
-            Debug.Log("Skill ativada! Mostrando barra de vida para: " + currentTarget.name);
-            canvas.enabled = true;
-            UpdateHealthBar(currentTarget.GetCurrentHealth(), currentTarget.GetMaxHealth());
-        }
+        // A visibilidade do Canvas agora espelha DIRETAMENTE o estado da skill.
+        // Se a skill for true, o canvas é enabled. Se for false, é disabled.
+        // Isso funciona a cada frame, garantindo que a barra apareça e desapareça corretamente.
+        canvas.enabled = SkillTreeManager.CanSeeEnemyHealth;
     }
 
-    // LateUpdate é melhor para seguir a câmera e objetos que se movem na física.
     private void LateUpdate()
     {
+        // A lógica de seguir o alvo e a câmera está perfeita.
         if (currentTarget == null || mainCamera == null) return;
         
         transform.position = currentTarget.transform.position + Vector3.up * verticalOffset;
@@ -60,15 +51,12 @@ public class EnemyHealthBarController : MonoBehaviour
     {
         if (newTarget == null) return;
         
-        Debug.Log("HealthBarController recebeu o alvo: " + newTarget.gameObject.name);
-
+        // Esta lógica de configuração está perfeita.
         currentTarget = newTarget;
         currentTarget.OnHealthChanged.AddListener(UpdateHealthBar);
-        isInitialized = true;
 
-        // Força uma verificação imediata para o caso de o inimigo ser criado
-        // DEPOIS que a skill já foi comprada.
-        Update(); 
+        // Atualiza a barra uma vez para mostrar a vida inicial do inimigo.
+        UpdateHealthBar(currentTarget.GetCurrentHealth(), currentTarget.GetMaxHealth());
     }
     
     private void UpdateHealthBar(float currentHealth, float maxHealth)

@@ -11,21 +11,26 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     [Header("Configurações de Ataque Ranged")]
-    public GameObject projectilePrefab; // Arraste o Prefab do seu projétil aqui
-    public Transform firePoint; // Ponto de onde o projétil sai. Pode ser o próprio transform do jogador.
+    public GameObject projectilePrefab;
+    public Transform firePoint;
 
     // Timers e Cooldowns
     private float attackCooldownTimer = 0f;
     private float ammoRegenTimer = 0f;
     private float timeStationary = 0f;
+    
+    // <<< NOVO: Status Ativos para evitar buffs cumulativos >>>
+    private float activeDamage;
+    private float activeAttackSpeed;
+    private bool isBuffActive = false;
+
+    private Coroutine postInvisibilityBuffCoroutine;
 
     private void Awake()
     {
-        // Pega referências dos componentes
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Configura o Input System
         controls = new PlayerControls();
         controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
@@ -37,15 +42,20 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        // Garante que o jogador não comece invisível e com a cor normal
-        SetInvisibility(false);
-        // Garante que o ponto de disparo exista, mesmo que seja o próprio jogador
+        SetInvisibility(false, true);
         if (firePoint == null) firePoint = transform;
     }
 
     void Update()
     {
-        // Atualiza todos os timers a cada frame
+        // <<< NOVO: Atualiza os status ativos a cada frame >>>
+        // Se o buff não estiver ativo, os status ativos são iguais aos do DataPlayer
+        if (!isBuffActive)
+        {
+            activeDamage = DataPlayer.Instance.danoBase;
+            activeAttackSpeed = DataPlayer.Instance.ataqueSpeed;
+        }
+
         HandleAttackCooldown();
         HandleAmmoRegen();
         HandleInvisibility();
@@ -53,7 +63,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Movimentação baseada em física é mais consistente
         if (DataPlayer.Instance != null)
         {
             rb.linearVelocity = moveInput.normalized * DataPlayer.Instance.moveSpeed;
@@ -64,27 +73,26 @@ public class PlayerController : MonoBehaviour
     {
         if (DataPlayer.Instance == null || attackCooldownTimer > 0) return;
 
-        // Verifica qual modo de ataque está ativo
         if (DataPlayer.Instance.currentAttackMode == AttackMode.Standard)
         {
-            // Ataque padrão com projéteis e munição
             if (DataPlayer.Instance.currentAmmo > 0)
             {
-                StartCoroutine(FireStandardProjectiles());
-                DataPlayer.Instance.currentAmmo--;
-                attackCooldownTimer = DataPlayer.Instance.ataqueSpeed;
-
-                // Atacar quebra a invisibilidade
                 if (DataPlayer.Instance.isInvisible)
                 {
                     SetInvisibility(false);
                 }
+                
+                StartCoroutine(FireStandardProjectiles());
+                DataPlayer.Instance.currentAmmo--;
+                
+                // <<< CORRIGIDO: Usa o 'activeAttackSpeed' para o cooldown >>>
+                attackCooldownTimer = activeAttackSpeed;
             }
         }
-        else // AttackMode.Orbiting
+        else
         {
             StartCoroutine(FireOrbitingProjectiles());
-            attackCooldownTimer = DataPlayer.Instance.orbitDuration; // Cooldown é a própria duração da órbita
+            attackCooldownTimer = DataPlayer.Instance.orbitDuration;
         }
     }
 
@@ -97,13 +105,105 @@ public class PlayerController : MonoBehaviour
 
             GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             
-            // O projétil buscará o dano no momento do impacto
-            proj.GetComponent<Rigidbody2D>().linearVelocity = direction * 15f; // Ajuste a velocidade do projétil
+            // <<< CORRIGIDO: O dano do projétil é calculado com 'activeDamage' >>>
+            float finalDamage = CalculateFinalDamage();
+            // Lembre-se de passar 'finalDamage' para o script do seu projétil
+            // Ex: proj.GetComponent<Projectile>().Initialize(direction, finalDamage);
 
-            yield return new WaitForSeconds(0.1f); // Pequeno atraso entre projéteis múltiplos
+            proj.GetComponent<Rigidbody2D>().linearVelocity = direction * 15f; 
+
+            if (DataPlayer.Instance.projectileCount > 1)
+                yield return new WaitForSeconds(0.1f);
         }
     }
 
+    // O restante do script continua igual até o método SetInvisibility...
+    // ... (FireOrbitingProjectiles, HandleAttackCooldown, etc. não precisam de mudança) ...
+
+    private void HandleInvisibility()
+    {
+        if (DataPlayer.Instance == null || !DataPlayer.Instance.canBecomeInvisible) return;
+
+        if (rb.linearVelocity.sqrMagnitude > 0.01f) // Se está se movendo
+        {
+            timeStationary = 0f;
+            if (DataPlayer.Instance.isInvisible)
+            {
+                SetInvisibility(false);
+            }
+        }
+        else // Se está parado
+        {
+            timeStationary += Time.deltaTime;
+            if (timeStationary >= DataPlayer.Instance.timeToBecomeInvisible && !DataPlayer.Instance.isInvisible)
+            {
+                SetInvisibility(true);
+            }
+        }
+    }
+    
+    private void SetInvisibility(bool state, bool forceState = false)
+    {
+        if (DataPlayer.Instance == null) return;
+        if (DataPlayer.Instance.isInvisible == state && !forceState) return;
+        
+        bool wasInvisible = DataPlayer.Instance.isInvisible;
+        DataPlayer.Instance.isInvisible = state;
+
+        Color spriteColor = spriteRenderer.color;
+        spriteColor.a = state ? 0.5f : 1.0f;
+        spriteRenderer.color = spriteColor;
+        
+        if (state)
+        {
+            DataPlayer.Instance.nextAttackHasBonusDamage = true;
+        }
+        else if (wasInvisible)
+        {
+            if (DataPlayer.Instance.hasPostInvisibilityBuffSkill)
+            {
+                if (postInvisibilityBuffCoroutine != null)
+                {
+                    StopCoroutine(postInvisibilityBuffCoroutine);
+                }
+                postInvisibilityBuffCoroutine = StartCoroutine(PostInvisibilityBuffRoutine());
+            }
+        }
+    }
+
+    // <<< CORRIGIDO: Coroutine agora usa os status ativos >>>
+    private IEnumerator PostInvisibilityBuffRoutine()
+    {
+        isBuffActive = true;
+        Debug.Log("SKILL 8 ATIVADA: +20% Dano, +Velocidade de Ataque por 5s!");
+
+        // Aplica os buffs calculados a partir dos valores BASE do DataPlayer
+        activeDamage = DataPlayer.Instance.danoBase * 1.20f;
+        activeAttackSpeed = DataPlayer.Instance.ataqueSpeed * 0.8f; // 20% de redução no cooldown = 25% mais rápido
+        
+        yield return new WaitForSeconds(5f);
+
+        isBuffActive = false;
+        postInvisibilityBuffCoroutine = null;
+        Debug.Log("SKILL 8 TERMINOU: Status voltando ao normal.");
+    }
+
+    public float CalculateFinalDamage()
+    {
+        if (DataPlayer.Instance == null) return 0f;
+
+        // Começa com o dano ativo (que já pode estar bufado pela Skill 8)
+        float finalDamage = activeDamage;
+        
+        if (DataPlayer.Instance.nextAttackHasBonusDamage)
+        {
+            finalDamage *= 1.5f;
+            DataPlayer.Instance.nextAttackHasBonusDamage = false;
+        }
+        return finalDamage;
+    }
+    
+    // O resto do código (como FireOrbitingProjectiles) não precisa de alteração.
     private IEnumerator FireOrbitingProjectiles()
     {
         GameObject[] orbitingProjs = new GameObject[DataPlayer.Instance.orbitingProjectilesCount];
@@ -112,8 +212,8 @@ public class PlayerController : MonoBehaviour
             orbitingProjs[i] = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             if (orbitingProjs[i].TryGetComponent<Rigidbody2D>(out var projRb))
             {
-                projRb.linearVelocity = Vector2.zero; // Projéteis giratórios são controlados por posição
-                projRb.bodyType = RigidbodyType2D.Kinematic; // Evita colisões estranhas
+                projRb.linearVelocity = Vector2.zero;
+                projRb.bodyType = RigidbodyType2D.Kinematic;
             }
         }
 
@@ -123,7 +223,6 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < orbitingProjs.Length; i++)
             {
                 if(orbitingProjs[i] == null) continue;
-
                 float angle = (i * (360f / orbitingProjs.Length)) + (timer * 360f / DataPlayer.Instance.orbitDuration);
                 Vector2 offset = new Vector2(Mathf.Sin(angle * Mathf.Deg2Rad), Mathf.Cos(angle * Mathf.Deg2Rad)) * DataPlayer.Instance.orbitRadius;
                 orbitingProjs[i].transform.position = (Vector2)transform.position + offset;
@@ -137,8 +236,6 @@ public class PlayerController : MonoBehaviour
             if (proj != null) Destroy(proj);
         }
     }
-    
-    // --- MÉTODOS DE GERENCIAMENTO (Chamados no Update) ---
 
     private void HandleAttackCooldown()
     {
@@ -159,59 +256,4 @@ public class PlayerController : MonoBehaviour
             ammoRegenTimer = 0f;
         }
     }
-
-    private void HandleInvisibility()
-    {
-        if (DataPlayer.Instance == null || !DataPlayer.Instance.canBecomeInvisible) return;
-
-        if (rb.linearVelocity.sqrMagnitude > 0.01f) // Se o jogador está se movendo
-        {
-            timeStationary = 0f;
-            if (DataPlayer.Instance.isInvisible)
-            {
-                SetInvisibility(false);
-            }
-        }
-        else // Se o jogador está parado
-        {
-            timeStationary += Time.deltaTime;
-            if (timeStationary >= DataPlayer.Instance.timeToBecomeInvisible && !DataPlayer.Instance.isInvisible)
-            {
-                SetInvisibility(true);
-                DataPlayer.Instance.nextAttackHasBonusDamage = true;
-            }
-        }
-    }
-
-    // --- MÉTODOS AUXILIARES ---
-
-    private void SetInvisibility(bool state)
-    {
-        if (DataPlayer.Instance == null) return;
-        
-        DataPlayer.Instance.isInvisible = state;
-        Color spriteColor = spriteRenderer.color;
-        spriteColor.a = state ? 0.5f : 1.0f; // Opacidade para feedback visual
-        spriteRenderer.color = spriteColor;
-        
-        if (!state)
-        {
-             DataPlayer.Instance.nextAttackHasBonusDamage = false;
-        }
-    }
-
-    public float CalculateFinalDamage()
-    {
-        if (DataPlayer.Instance == null) return 0f;
-
-        float finalDamage = DataPlayer.Instance.danoBase;
-        if (DataPlayer.Instance.nextAttackHasBonusDamage)
-        {
-            finalDamage *= 2;
-            DataPlayer.Instance.nextAttackHasBonusDamage = false; // Bônus é consumido no ataque
-        }
-        return finalDamage;
-    }
-
-    // Removemos OnDrawGizmosSelected pois o ataque melee não existe mais.
 }
