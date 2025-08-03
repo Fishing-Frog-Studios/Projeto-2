@@ -1,12 +1,17 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DataPlayer : MonoBehaviour
 {
     public static DataPlayer Instace { get; private set; }
 
     //madao colocou essas duas variaveis pra pegar a posicao do sapo pra salvar dps.
-    public float posicaoSalvaX;
-    public float posicaoSalvaY;
+    public float posicaoSalvaX = 0;
+    public float posicaoSalvaY = 0;
 
 
     // Status do Jogador
@@ -35,6 +40,25 @@ public class DataPlayer : MonoBehaviour
     [Header("damege base")] //david, é DAMAGE
     public float dano;
 
+//EU TO ME PERDENDO TODA HORA EU CRIEI ESSE COMENTARIO PRA ME ACHAR
+    [Header("Tempo de Jogo")]
+    public float tempoDeJogo;
+
+    [Header("Data Atual")]
+    public string dataAtual;
+
+    public Text dateDisplay;
+
+    public TextMeshProUGUI timerText;
+    
+    private float startTime;
+
+    void Start()
+    {
+        
+        startTime = Time.time;
+    }
+
 
     private void Awake()
     {
@@ -49,6 +73,24 @@ public class DataPlayer : MonoBehaviour
 
         //Continua entre as cenas
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+
+        if (SceneManager.GetActiveScene().name == "characters")
+        {
+            tempoDeJogo += Time.deltaTime; 
+        }
+
+
+
+
+        //timerText.text = minutes + ":" + seconds;
+
+        //esse é o calendario atual, o dateDisplay vai pegar a data atual do sistema do pc.
+        DateTime dataAtual = DateTime.Now;
+        //dateDisplay.text = tempoDeJogo.ToString("dddd, MMMM dd, yyyy HH:mm:ss");
     }
 
 

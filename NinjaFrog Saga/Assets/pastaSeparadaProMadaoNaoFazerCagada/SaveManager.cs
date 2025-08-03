@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
 
 public class SaveManager : MonoBehaviour
 {
@@ -51,48 +52,53 @@ public class SaveManager : MonoBehaviour
 
 
 
-    public void SaveGame()
-{
-
-    // Verificar se o Sapo foi encontrado
-    if (PlayerControllerMOdificado.Instance != null)
+    public void SaveGame(int slotIndex)
     {
-        // Criar a "ficha" de save
-        DadosDoSave dados = new DadosDoSave();
 
-       
-        dados.posicaoX = PlayerControllerMOdificado.Instance.transform.position.x;
-        dados.posicaoY = PlayerControllerMOdificado.Instance.transform.position.y;
-        
-        
-        dados.nome = DataPlayer.Instace.nome;
-        dados.level = DataPlayer.Instace.level;
-        dados.Vida = DataPlayer.Instace.Vida;
-        dados.Mana = DataPlayer.Instace.Mana;
-        dados.ouro = DataPlayer.Instace.ouro;
-        dados.moveSpeed = DataPlayer.Instace.moveSpeed;
-        dados.ataqueSpeed = DataPlayer.Instace.ataqueSpeed;
-        dados.dano = DataPlayer.Instace.dano;
+        // Verificar se o Sapo foi encontrado
+        if (PlayerControllerMOdificado.Instance != null)
+        {
+            // Criar a "ficha" de save
+            DadosDoSave dados = new DadosDoSave();
 
-        // traduzir paraa JSON e salvar
-        string json = JsonUtility.ToJson(dados, true);
-        string caminho = Path.Combine(Application.persistentDataPath, "save.json");
-        File.WriteAllText(caminho, json);
 
-        // debug pra mostrar essa droga
-        Debug.Log("JOGO SALVO! Posição salva: (" + dados.posicaoX + ", " + dados.posicaoY + ")");
+            dados.posicaoX = PlayerControllerMOdificado.Instance.transform.position.x;
+            dados.posicaoY = PlayerControllerMOdificado.Instance.transform.position.y;
+
+
+            dados.nome = DataPlayer.Instace.nome;
+            dados.level = DataPlayer.Instace.level;
+            dados.Vida = DataPlayer.Instace.Vida;
+            dados.Mana = DataPlayer.Instace.Mana;
+            dados.ouro = DataPlayer.Instace.ouro;
+            dados.moveSpeed = DataPlayer.Instace.moveSpeed;
+            dados.ataqueSpeed = DataPlayer.Instace.ataqueSpeed;
+            dados.dano = DataPlayer.Instace.dano;
+            dados.tempoDeJogo = DataPlayer.Instace.tempoDeJogo;
+
+            //dados.dataAtual = DataPlayer.Instace.dataAtual;
+            DataPlayer.Instace.dataAtual = dados.dataAtual = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            // traduzir paraa JSON e salvar
+            string json = JsonUtility.ToJson(dados, true);
+            //string caminho = Path.Combine(Application.persistentDataPath, "save.json");
+            string caminho = Path.Combine(Application.persistentDataPath, "save_" + slotIndex + ".json");
+            File.WriteAllText(caminho, json);
+
+            // debug pra mostrar essa droga
+            Debug.Log("JOGO SALVO! Posição salva: (" + dados.posicaoX + ", " + dados.posicaoY + ")");
+        }
+        else
+        {
+            Debug.LogError("SaveGame ERRO: Sapo (PlayerController) não encontrado na cena!");
+        }
     }
-    else
-    {
-        Debug.LogError("SaveGame ERRO: Sapo (PlayerController) não encontrado na cena!");
-    }
-}
-    
-    
 
-    public void LoadGame()
+
+
+    public void LoadGame(int slotIndex)
     {
-        string caminho = Path.Combine(Application.persistentDataPath, "save.json");
+        //string caminho = Path.Combine(Application.persistentDataPath, "save.json");
+        string caminho = Path.Combine(Application.persistentDataPath, "save_" + slotIndex + ".json");
 
         if (File.Exists(caminho))
         {
@@ -112,10 +118,14 @@ public class SaveManager : MonoBehaviour
             DataPlayer.Instace.moveSpeed = dados.moveSpeed;
             DataPlayer.Instace.ataqueSpeed = dados.ataqueSpeed;
             DataPlayer.Instace.dano = dados.dano;
+            DataPlayer.Instace.tempoDeJogo = dados.tempoDeJogo;
 
-            
+            //DataPlayer.Instace.dataAtual = dados.dataAtual;
+            DataPlayer.Instace.dataAtual = dados.dataAtual = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+
+
             Time.timeScale = 1f;
-            
+
             SceneManager.LoadScene("Characters");
         }
         else
@@ -124,5 +134,6 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    
     
 }

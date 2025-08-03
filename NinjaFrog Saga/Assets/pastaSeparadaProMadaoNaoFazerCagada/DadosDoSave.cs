@@ -16,4 +16,7 @@ public class DadosDoSave
     public float moveSpeed;
     public float ataqueSpeed;
     public float dano;
+    public string dataAtual;
+    public float tempoDeJogo;
+
 }

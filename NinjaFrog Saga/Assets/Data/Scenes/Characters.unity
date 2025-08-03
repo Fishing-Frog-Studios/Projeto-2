@@ -13883,9 +13883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece25bc2505d11b468f1e50668289ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuUI: {fileID: 1058247265}
+  menuUI: {fileID: 1003810526}
   debugText: {fileID: 1377064298}
-  projetil: {fileID: 0}
 --- !u!114 &1044327236
 MonoBehaviour:
   m_ObjectHideFlags: 0
