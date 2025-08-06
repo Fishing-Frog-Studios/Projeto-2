@@ -53,6 +53,8 @@ public class DataPlayer : MonoBehaviour
     
     private float startTime;
 
+    public int SlotAtual = -1;
+
     void Start()
     {
         
@@ -78,7 +80,7 @@ public class DataPlayer : MonoBehaviour
     void Update()
     {
 
-        if (SceneManager.GetActiveScene().name == "characters")
+        if (SceneManager.GetActiveScene().name == "Characters")
         {
             tempoDeJogo += Time.deltaTime; 
         }

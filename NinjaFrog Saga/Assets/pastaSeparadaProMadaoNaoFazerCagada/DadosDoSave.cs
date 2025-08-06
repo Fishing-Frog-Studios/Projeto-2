@@ -19,4 +19,6 @@ public class DadosDoSave
     public string dataAtual;
     public float tempoDeJogo;
 
+
+
 }
