@@ -4877,7 +4877,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1142724401}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: SaveGame
+        m_MethodName: saveInGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12827,7 +12827,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1142724401}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
         m_MethodName: LoadGame
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13883,7 +13883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece25bc2505d11b468f1e50668289ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuUI: {fileID: 1003810526}
+  menuUI: {fileID: 1058247265}
   debugText: {fileID: 1377064298}
 --- !u!114 &1044327236
 MonoBehaviour:
@@ -30749,11 +30749,11 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 51048730}
   - {fileID: 8898411999915670896}
   - {fileID: 1470747183}
   - {fileID: 1044327227}
   - {fileID: 1003810530}
   - {fileID: 2871272811438270456}
-  - {fileID: 51048730}
   - {fileID: 2078531356}
   - {fileID: 166618857}

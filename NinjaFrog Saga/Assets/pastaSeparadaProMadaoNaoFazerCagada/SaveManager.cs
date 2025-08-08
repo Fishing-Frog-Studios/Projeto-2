@@ -14,7 +14,7 @@ public class SaveManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
 
             if (jogoPausado)
@@ -50,7 +50,19 @@ public class SaveManager : MonoBehaviour
     //eu gosto de espaço owo
 
 
+    public void saveInGame()
+    {
+        if (DataPlayer.Instace.SlotAtual >= 0 && DataPlayer.Instace.SlotAtual <= 2)
+        {
 
+            SaveGame(DataPlayer.Instace.SlotAtual);
+        }
+        else
+        {
+            SaveGame(0);
+        }
+
+    }
 
     public void SaveGame(int slotIndex)
     {
@@ -75,6 +87,7 @@ public class SaveManager : MonoBehaviour
             dados.ataqueSpeed = DataPlayer.Instace.ataqueSpeed;
             dados.dano = DataPlayer.Instace.dano;
             dados.tempoDeJogo = DataPlayer.Instace.tempoDeJogo;
+            
 
             //dados.dataAtual = DataPlayer.Instace.dataAtual;
             DataPlayer.Instace.dataAtual = dados.dataAtual = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
@@ -119,6 +132,7 @@ public class SaveManager : MonoBehaviour
             DataPlayer.Instace.ataqueSpeed = dados.ataqueSpeed;
             DataPlayer.Instace.dano = dados.dano;
             DataPlayer.Instace.tempoDeJogo = dados.tempoDeJogo;
+            DataPlayer.Instace.SlotAtual = slotIndex;
 
             //DataPlayer.Instace.dataAtual = dados.dataAtual;
             DataPlayer.Instace.dataAtual = dados.dataAtual = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
