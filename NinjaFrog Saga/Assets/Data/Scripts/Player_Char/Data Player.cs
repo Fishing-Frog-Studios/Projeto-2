@@ -91,7 +91,7 @@ public class DataPlayer : MonoBehaviour
         //timerText.text = minutes + ":" + seconds;
 
         //esse é o calendario atual, o dateDisplay vai pegar a data atual do sistema do pc.
-        DateTime dataAtual = DateTime.Now;
+        _ = DateTime.Now;
         //dateDisplay.text = tempoDeJogo.ToString("dddd, MMMM dd, yyyy HH:mm:ss");
     }
 

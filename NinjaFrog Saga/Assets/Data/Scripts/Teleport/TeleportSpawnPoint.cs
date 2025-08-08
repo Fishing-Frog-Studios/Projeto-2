@@ -14,7 +14,7 @@ public class TeleportSpawnPoint : MonoBehaviour
                 if (player != null)
                 {
                     player.transform.position = targetPoint.transform.position;
-                    CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
+                    CameraFollow cameraFollow = Object.FindAnyObjectByType<CameraFollow>();
                     if (cameraFollow != null)
                         cameraFollow.SnapToTarget();
                 }
