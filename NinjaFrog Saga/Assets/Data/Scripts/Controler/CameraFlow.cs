@@ -14,4 +14,10 @@ public class CameraFollow : MonoBehaviour
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
     }
+    public void SnapToTarget()
+    {
+        if (target == null) return;
+        transform.position = target.position + offset;
+    }
+
 }
