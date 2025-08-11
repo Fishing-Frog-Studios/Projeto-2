@@ -19,8 +19,8 @@ public class PlayerControllerMOdificado : MonoBehaviour
     //madao new
     [Header("UI de Debug")]
     public TMP_Text debugText;
-    
-    
+
+
 
     private void Awake()
     {
@@ -49,22 +49,22 @@ public class PlayerControllerMOdificado : MonoBehaviour
     private void Start()
     {
 
-    // Pega os dados do player de um script externo
-    speed = DataPlayer.Instace.moveSpeed;
-    atkSpeed = DataPlayer.Instace.ataqueSpeed;
+        // Pega os dados do player de um script externo
+        speed = DataPlayer.Instace.moveSpeed;
+        atkSpeed = DataPlayer.Instace.ataqueSpeed;
 
-    // Garante que o menu começa fechado
-    menuUI.SetActive(false);
-    Cursor.visible = false;
-    Cursor.lockState = CursorLockMode.Locked;
+        // Garante que o menu começa fechado
+        menuUI.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         controls.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         controls.Disable();
     }
@@ -151,4 +151,6 @@ public class PlayerControllerMOdificado : MonoBehaviour
         // também seria bom resetá-las aqui.
         Debug.Log("Movimento do jogador resetado.");
     }
+
+    
 }
