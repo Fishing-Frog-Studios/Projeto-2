@@ -30671,6 +30671,10 @@ PrefabInstance:
       propertyPath: debugText
       value: 
       objectReference: {fileID: 1377064298}
+    - target: {fileID: 8801045294204467875, guid: b1ef3f76858910b49b70816e0bf8ffcf, type: 3}
+      propertyPath: dadosDoJogador
+      value: 
+      objectReference: {fileID: 11400000, guid: eb1b68bc9ad094c4e9cf65bb678b9435, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

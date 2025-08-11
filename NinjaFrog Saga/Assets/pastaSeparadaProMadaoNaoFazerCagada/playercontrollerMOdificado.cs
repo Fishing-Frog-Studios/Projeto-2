@@ -8,7 +8,7 @@ public class PlayerControllerMOdificado : MonoBehaviour
     private PlayerControls controls;
     private Vector2 moveInput;
     private bool isAttacking;
-    private float speed;
+    private float moveSpeed;
     private float atkSpeed;
 
     private bool isMenuOpen = false;
@@ -19,6 +19,8 @@ public class PlayerControllerMOdificado : MonoBehaviour
     //madao new
     [Header("UI de Debug")]
     public TMP_Text debugText;
+
+    public DataPlayerSO dadosDoJogador;
 
 
 
@@ -50,8 +52,10 @@ public class PlayerControllerMOdificado : MonoBehaviour
     {
 
         // Pega os dados do player de um script externo
-        speed = DataPlayer.Instace.moveSpeed;
-        atkSpeed = DataPlayer.Instace.ataqueSpeed;
+        //moveSpeed = DataPlayer.Instace.moveSpeed;
+        moveSpeed = dadosDoJogador.moveSpeed;
+        //atkSpeed = DataPlayer.Instace.ataqueSpeed;
+        atkSpeed = dadosDoJogador.ataqueSpeed;
 
         // Garante que o menu começa fechado
         menuUI.SetActive(false);
@@ -76,7 +80,7 @@ public class PlayerControllerMOdificado : MonoBehaviour
         if (isMenuOpen) return;
 
         Vector3 movement = new Vector3(moveInput.x, moveInput.y, 0f);
-        transform.Translate(movement * speed * Time.deltaTime);
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
 
         //madao new
         //essa é a parte das info lá, deixar printado na tela
